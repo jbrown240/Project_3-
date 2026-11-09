@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hover Circle Expansion</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1e1e24;
+      font-family: Arial, sans-serif;
+    }
+
+    .circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #4a90e2;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      /* Handles the smooth grow and shrink animation */
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Added by JavaScript on hover */
+    .circle.expand {
+      transform: scale(2);
+      background-color: #ff6b6b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circle" id="hover-circle">Hover</div>
+
+  <script>
+    const circle = document.getElementById("hover-circle");
+
+    // Trigger expansion when mouse enters the circle
+    circle.addEventListener("mouseenter", () => {
+      circle.classList.add("expand");
+    });
+
+    // Remove expansion when mouse leaves the circle
+    circle.addEventListener("mouseleave", () => {
+      circle.classList.remove("expand");
+    });
+  </script>
+</body>
+</html>
